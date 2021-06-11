@@ -1,25 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react'
+import { addToList } from './JS/actions/actions'
+import { useSelector, useDispatch } from 'react-redux'
+import List from './component/List'
+import ADD from './component/ADD';
+import FILTER from './component/FILTER';
 
-function App() {
+
+function App(props) {
+  const [value, setValue] = useState('')
+  const dispatch = useDispatch()
+  
+
+  const selectTodos = state => state.toDoList
+  const todos = useSelector(selectTodos)
+
+
+  const add = () => {
+    const newadd = {
+      id: Math.random(),
+      text: value,
+      Done: false,
+    }
+    dispatch(addToList(newadd))
+    setValue('')
+  }
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    
+    <div className='Header'>
+    <img src='./study.gif' alt='logo study' width='200px' height='100px'></img>
+    <h1 className='titre'>To Do Courses </h1>
+    <FILTER todos={todos}/>
     </div>
+    <ADD add={add} value={value} setValue={setValue}/>
+    <List todos={todos} />
+    </div >
   );
 }
+
 
 export default App;
