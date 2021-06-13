@@ -3,18 +3,19 @@ import {DropdownButton, Dropdown, Button} from 'react-bootstrap'
 import {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {filterToList} from '../JS/actions/actions'
-const FILTER = () => {
+
+const FILTER = ({todos}) => {
     const dispatch = useDispatch();
     const [value,setValue]=useState('');
 
-
     const handleSelect=(e)=>{
       setValue(e)
+      
     }
 
     const filter=()=>{
-       
-        dispatch(filterToList({text2: value}))
+     
+        dispatch(filterToList({done: value}))
     }
  
 

@@ -9,13 +9,12 @@ const DELETE = ({el}) => {
 
 
     const deleteitem =()=>{
-        dispatch(deleteToList({text1:el.text}))
+        dispatch(deleteToList({deleteText:el.text}))
         console.log(el.text)
     }
     return (
         <div>
              <Button variant="danger" onClick={()=>deleteitem()}> X </Button>
-              
         </div>
     )
 }

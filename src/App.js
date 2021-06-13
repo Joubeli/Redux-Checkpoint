@@ -34,7 +34,7 @@ function App(props) {
     <div className='Header'>
     <img src='./study.gif' alt='logo study' width='200px' height='100px'></img>
     <h1 className='titre'>To Do Courses </h1>
-    <FILTER todos={todos}/>
+    <FILTER todos={todos} />
     </div>
     <ADD add={add} value={value} setValue={setValue}/>
     <List todos={todos} />

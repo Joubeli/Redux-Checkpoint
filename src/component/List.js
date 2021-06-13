@@ -11,7 +11,7 @@ const List = ({ todos }) => {
     return (
        <div >
             <ListGroup as="ul"  >
-                <ListGroup.Item  as="li" active className='list'> To Do List</ListGroup.Item>
+                <ListGroup.Item  as="li" active className='list'>To Do List</ListGroup.Item>
                 {todos.map((el, index) =>
                 <ListGroup.Item as="li" className='list' > 
                         {el.text}

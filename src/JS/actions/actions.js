@@ -9,26 +9,26 @@ export const addToList=(payload)=>{
     }
 }
 
-export const updateToList=({id, text})=>{
+export const updateToList=({id, editText})=>{
     return{
         type:UPDATE,
         id:id,
-        text:text
+        editText:editText,
     }
 }
 
-export const deleteToList=({text1})=>{
+export const deleteToList=({deleteText})=>{
     return{
         type:DELETE,
-        text1:text1,
+        deleteText:deleteText,
     }
 }
 
 
-export const filterToList=({text2})=>{
+export const filterToList=({done})=>{
     return{
         type:FILTER,
-        text2:text2,
+        done:done,
     }
 }
 

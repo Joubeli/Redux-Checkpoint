@@ -19,7 +19,7 @@ const EDIT = ({el}) => {
 
     const update=(e)=>{
         e.preventDefault()
-        dispatch(updateToList({id: el.id, text: changeText}))
+        dispatch(updateToList({id: el.id, editText: changeText}))
     }
 
     return (

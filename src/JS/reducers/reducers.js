@@ -32,17 +32,18 @@ const initialState={
     ]
 }
 
-const reducerADE =(state=initialState,{payload,type,id,text, text1, text2})=>{
+const reducerADE =(state=initialState,{payload,type,id,editText, deleteText, done})=>{
         switch (type) {
             case ADDITION:
               return { ...state, toDoList: [...state.toDoList, payload] };
             case UPDATE:
-              return{...state, toDoList: state.toDoList.map((todo)=>  id===todo.id ? {...todo, text: text}:todo)};
+              return{...state, toDoList: state.toDoList.map((todo)=>  id===todo.id ? {...todo, text: editText}:todo)};
             case DELETE:
-              return{...state, toDoList: state.toDoList.filter((del)=>  text1!==del.text )};
+              return{...state, toDoList: state.toDoList.filter((del)=>  deleteText!==del.text )};
             case FILTER:
-              return{...state, toDoList: state.toDoList.filter((fil)=>  text2==fil.Done )};
-  
+              return{ ...state, toDoList: state.toDoList.filter((fil) => fil.Done==done)
+                 
+            }
         default: {return state}
 
     }     
