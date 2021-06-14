@@ -8,7 +8,7 @@ const ADD = (props) => {
             <InputGroup size="sm" className='list'>
                 <InputGroup.Text id="inputGroup-sizing-sm">Add Courses to Submit</InputGroup.Text>
                 <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" value={props.value} type='text' onChange={(e) => props.setValue(e.target.value)} />
-                <Button variant="info" onClick={() => props.add()}>ADD</Button>
+                <Button variant="primary"  onClick={() => props.add()}>ADD</Button>
             </InputGroup>
         </div>
     )

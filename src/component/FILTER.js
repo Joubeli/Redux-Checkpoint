@@ -1,44 +1,21 @@
 import React from 'react'
-import {DropdownButton, Dropdown, Button} from 'react-bootstrap'
-import {useState} from 'react'
-import {useDispatch} from 'react-redux'
-import {filterToList} from '../JS/actions/actions'
 
-const FILTER = ({todos}) => {
-    const dispatch = useDispatch();
-    const [value,setValue]=useState('');
-
-    const handleSelect=(e)=>{
-      setValue(e)
-      
-    }
-
-    const filter=()=>{
-     
-        dispatch(filterToList({done: value}))
-    }
- 
-
-   
-
-
-    return (
-        <div >
-            
-    <DropdownButton alignRight title="Select Done or UnDone Courses" id="dropdown-menu-align-right" onSelect={handleSelect}>
- 
-              <Dropdown.Item eventKey='true'>Done</Dropdown.Item>
-              <Dropdown.Item eventKey='false'>UnDone</Dropdown.Item>
-              <Dropdown.Divider />
-              <Dropdown.Item eventKey="some link">Course Filter</Dropdown.Item>
-      </DropdownButton>
-      <Button onClick={filter} className='filter'>Filter</Button>
-
-     
+const FILTER = (props) => {
+  return (
+    <div className='input-text' >
+      <h5 style={{marginLeft:'24px'}}>Filter Your Courses  !!</h5>
+      <div className='input-checked'>
+        <div className='input'>
+          <input type="checkbox" id="done" onClick={(e)=>props.setDone(e.target.checked)} />
+          <label for="done">Done</label>
+        </div>
+        <div className='input'>
+          <input type="checkbox" id="undone" onClick={(e)=>props.setUndone(e.target.checked)} />
+          <label for="undone">UnDone</label>
+        </div>
+      </div>
     </div>
-
-       
-    )
+  )
 }
 
 export default FILTER

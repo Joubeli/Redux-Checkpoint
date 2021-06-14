@@ -1,4 +1,4 @@
-import {ADDITION, UPDATE, DELETE, FILTER} from '../constant/typeactions'
+import {ADDITION, UPDATE, DELETE, DONE} from '../constant/typeactions'
 
 export const addToList=(payload)=>{
 
@@ -25,12 +25,12 @@ export const deleteToList=({deleteText})=>{
 }
 
 
-export const filterToList=({done})=>{
-    return{
-        type:FILTER,
-        done:done,
-    }
-}
+export const done = (payload) => {
+    return {
+      type: DONE,
+      payload
+    };
+  };
 
 
 

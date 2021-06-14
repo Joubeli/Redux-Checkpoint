@@ -1,30 +1,26 @@
 import React from 'react'
 import '../App.css';
-import EDIT from './EDIT';
-import {ListGroup} from 'react-bootstrap';
-import DELETE from './DELETE';
+import { ListGroup } from 'react-bootstrap';
+import CARD from './CARD';
 
 
 
-const List = ({ todos }) => {
+const List = ({ todos, done, undone }) => {
 
     return (
-       <div >
+        <div >
             <ListGroup as="ul"  >
-                <ListGroup.Item  as="li" active className='list'>To Do List</ListGroup.Item>
-                {todos.map((el, index) =>
-                <ListGroup.Item as="li" className='list' > 
-                        {el.text}
-                        <div className='buttons'>
-                        <EDIT el={el} />
-                        <DELETE el={el}/>
-                        </div>
-                        </ListGroup.Item>
-                        )}
+            <ListGroup.Item as="li" active className='list'>To Do List</ListGroup.Item>
+
+             {done===undone? todos.map((el, index) => <CARD el={el}/>)
+
+              :done? todos.filter((el)=>el.isDone===true).map((el, index) => <CARD el={el}/>)
+
+              :todos.filter((el)=>el.isDone===false).map((el, index) => <CARD el={el}/>)}
 
             </ListGroup>
 
-            </div>
+        </div>
 
     )
 }

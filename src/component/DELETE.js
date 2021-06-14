@@ -6,8 +6,6 @@ import {deleteToList} from '../JS/actions/actions'
 const DELETE = ({el}) => {
 
     const dispatch = useDispatch()
-
-
     const deleteitem =()=>{
         dispatch(deleteToList({deleteText:el.text}))
         console.log(el.text)

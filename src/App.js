@@ -5,10 +5,15 @@ import { useSelector, useDispatch } from 'react-redux'
 import List from './component/List'
 import ADD from './component/ADD';
 import FILTER from './component/FILTER';
+import HEADER from './component/HEADER';
 
 
 function App(props) {
   const [value, setValue] = useState('')
+  const [done, setDone]=useState('')
+  const[undone,setUndone]=useState('')
+
+
   const dispatch = useDispatch()
   
 
@@ -31,13 +36,11 @@ function App(props) {
   return (
     <div>
     
-    <div className='Header'>
-    <img src='./study.gif' alt='logo study' width='200px' height='100px'></img>
-    <h1 className='titre'>To Do Courses </h1>
-    <FILTER todos={todos} />
-    </div>
+    <HEADER/>
+
+    <FILTER setDone={setDone}  setUndone={setUndone}/>
     <ADD add={add} value={value} setValue={setValue}/>
-    <List todos={todos} />
+    <List todos={todos} done={done} undone={undone}/>
     </div >
   );
 }
